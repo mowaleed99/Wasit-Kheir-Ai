@@ -71,12 +71,12 @@ VOLUME_PATH = "/data/faiss_indexes"
     image=image,
     secrets=[modal.Secret.from_name("lost-found-secrets")],
     volumes={VOLUME_PATH: faiss_volume},
-    allow_concurrent_inputs=1,   # ← CRITICAL: serializes all requests (FAISS safety)
-    keep_warm=1,                 # Keep 1 container warm (no cold starts)
+    min_containers=1,            # Keep 1 container warm (no cold starts)
     timeout=300,
     cpu=2.0,
     memory=2048,
 )
+@modal.concurrent(max_inputs=1)  # ← CRITICAL: serializes all requests (FAISS safety)
 class LostFoundAI:
     """
     Main AI service. All requests are serialized (one at a time per container)
