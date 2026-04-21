@@ -24,3 +24,7 @@ FACE_EMBED_DIM = 512      # ArcFace يخرج 512 بُعدًا
 # إعدادات FAISS
 FAISS_INDEX_DIR = os.getenv("FAISS_INDEX_DIR", "./faiss_indexes")
 os.makedirs(FAISS_INDEX_DIR, exist_ok=True)
+
+# Modal API
+MODAL_URL = os.getenv("MODAL_URL", "https://mowaleed99--lost-found-ai-lostfoundai-web.modal.run")
+MODAL_API_KEY = os.getenv("MODAL_API_KEY", "dev_key_123")

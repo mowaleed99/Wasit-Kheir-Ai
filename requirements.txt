@@ -10,3 +10,4 @@ insightface
 python-multipart
 langchain
 onnxruntime
+httpx
