@@ -1,0 +1,22 @@
+{
+    "builds": [
+        {
+            "src": "app/main.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "app/main.py"
+        }
+    ],
+    "env": {
+        "TEXT_EMBED_MODEL": "models/gemini-embedding-001",
+        "MULTIMODAL_EMBED_MODEL": "models/gemini-embedding-2-preview",
+        "TEXT_EMBED_DIM": "3072",
+        "IMAGE_EMBED_DIM": "3072",
+        "FACE_EMBED_DIM": "512",
+        "FAISS_INDEX_DIR": "/tmp/faiss_indexes"
+    }
+}
